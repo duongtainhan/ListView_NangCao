@@ -4,51 +4,32 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.List;
 
-import java.util.ArrayList;
+public class EatingAdapter extends ArrayAdapter<EatingItem>{
 
-public class EatingAdapter extends BaseAdapter{
-
-    Context context;
-    int layout;
-    ArrayList<EatingItem> arrayEating;
-
-
-    public EatingAdapter(Context context, int layout, ArrayList<EatingItem> arrayEating) {
-        this.context = context;
-        this.layout = layout;
-        this.arrayEating = arrayEating;
+    public EatingAdapter(Context context, int resource, List<EatingItem> items) {
+        super(context, resource, items);
     }
-
     @Override
-    public int getCount() {
-        return arrayEating.size();
-    }
+    public View getView(int position, View convertView, ViewGroup parent) {
 
-    @Override
-    public Object getItem(int i) {
-        return arrayEating.get(i);
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+        View view = convertView;
         if (view == null) {
-            LayoutInflater inflater = LayoutInflater.from(context);
-            view = inflater.inflate(R.layout.layout_eating);
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            view =  inflater.inflate(R.layout.layout_eating, null);
         }
-        //EatingItem e = getItem(i);
-        if(e != null)
-        {
-            TextView img = view.findViewById(R.id.imgEating);
+        EatingItem p = getItem(position);
+        if (p != null) {
+            ImageView img = view.findViewById(R.id.imgEating);
+            img.setImageResource(p.getImage());
             TextView txtName = view.findViewById(R.id.txtName);
+            txtName.setText(p.getName());
             TextView txtPrice = view.findViewById(R.id.txtPrice);
+            txtPrice.setText(p.getPrice());
         }
         return view;
     }
