@@ -27,9 +27,9 @@ public class EatingAdapter extends ArrayAdapter<EatingItem>{
             ImageView img = view.findViewById(R.id.imgEating);
             img.setImageResource(p.getImage());
             TextView txtName = view.findViewById(R.id.txtName);
-            txtName.setText(p.getName());
+            txtName.setText(p.getName()+"");
             TextView txtPrice = view.findViewById(R.id.txtPrice);
-            txtPrice.setText(p.getPrice());
+            txtPrice.setText(p.getPrice()+"");
         }
         return view;
     }
