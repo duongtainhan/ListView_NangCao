@@ -17,7 +17,9 @@
         android:text="Name"
         android:textSize="30sp"
         android:layout_marginLeft="10dp"
-        android:id="@+id/txtName"/>
+        android:id="@+id/txtName"
+        android:textColor="#6861de"
+        android:textStyle="bold"/>
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
@@ -27,6 +29,8 @@
         android:text="Price"
         android:textSize="30sp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="#e9295f"
+        android:textStyle="italic"/>
 
 </RelativeLayout>
